@@ -963,6 +963,51 @@ footer { background: #0d0d0d; color: rgba(255,255,255,0.65); padding: 50px 20px 
 
 -->
 
+<!-- CUSTOMER REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Client Voices</div>
+      <h2 class="section-title">Share Your <span style="color:var(--gold)">Experience</span></h2>
+      <p class="section-desc">Loved working with us? Leave a review below — it posts instantly and stays here for every visitor to see.</p>
+    </div>
+
+    <div class="review-form-wrapper">
+      <form id="reviewForm" onsubmit="submitReview(event)">
+        <div class="review-form-grid">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" name="name" class="form-input light" required maxlength="60" placeholder="e.g. Priya Sharma">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Location</label>
+            <input type="text" name="location" class="form-input light" maxlength="60" placeholder="e.g. Bengaluru">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Your Rating</label>
+            <div class="star-rating" id="starRating">
+              <span data-value="1">★</span><span data-value="2">★</span><span data-value="3">★</span><span data-value="4">★</span><span data-value="5">★</span>
+            </div>
+            <input type="hidden" name="rating" id="ratingInput" value="5">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Your Review</label>
+            <textarea name="text" class="form-textarea light" rows="4" required maxlength="600" placeholder="Tell us about your experience with DesignTeam Interiors..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">✦ Post My Review</button>
+      </form>
+      <div class="review-success" id="reviewSuccess">✓ Thank you! Your review has been posted and is now live on this page.</div>
+    </div>
+
+    <div class="reviews-wall" id="reviewsWall">
+      <div class="reviews-loading" id="reviewsLoading">Loading reviews…</div>
+    </div>
+  </div>
+</section>
+
+
+
 <!-- LEAD FORM -->
 <section id="contact-form">
   <div class="form-bg-pattern"></div>
@@ -1136,48 +1181,7 @@ footer { background: #0d0d0d; color: rgba(255,255,255,0.65); padding: 50px 20px 
   </div>
 </section>
 
-<!-- CUSTOMER REVIEWS -->
-<section id="reviews">
-  <div class="container">
-    <div class="text-center">
-      <div class="section-eyebrow">Client Voices</div>
-      <h2 class="section-title">Share Your <span style="color:var(--gold)">Experience</span></h2>
-      <p class="section-desc">Loved working with us? Leave a review below — it posts instantly and stays here for every visitor to see.</p>
-    </div>
 
-    <div class="review-form-wrapper">
-      <form id="reviewForm" onsubmit="submitReview(event)">
-        <div class="review-form-grid">
-          <div class="form-group">
-            <label class="form-label">Your Name</label>
-            <input type="text" name="name" class="form-input light" required maxlength="60" placeholder="e.g. Priya Sharma">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Location</label>
-            <input type="text" name="location" class="form-input light" maxlength="60" placeholder="e.g. Bengaluru">
-          </div>
-          <div class="form-group full">
-            <label class="form-label">Your Rating</label>
-            <div class="star-rating" id="starRating">
-              <span data-value="1">★</span><span data-value="2">★</span><span data-value="3">★</span><span data-value="4">★</span><span data-value="5">★</span>
-            </div>
-            <input type="hidden" name="rating" id="ratingInput" value="5">
-          </div>
-          <div class="form-group full">
-            <label class="form-label">Your Review</label>
-            <textarea name="text" class="form-textarea light" rows="4" required maxlength="600" placeholder="Tell us about your experience with DesignTeam Interiors..."></textarea>
-          </div>
-        </div>
-        <button type="submit" class="form-submit">✦ Post My Review</button>
-      </form>
-      <div class="review-success" id="reviewSuccess">✓ Thank you! Your review has been posted and is now live on this page.</div>
-    </div>
-
-    <div class="reviews-wall" id="reviewsWall">
-      <div class="reviews-loading" id="reviewsLoading">Loading reviews…</div>
-    </div>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer>
