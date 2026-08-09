@@ -297,6 +297,48 @@ section { padding: 90px 20px; overflow-x: hidden; }
 }
 .service-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; transition: color 0.35s; position: relative; z-index: 1; }
 
+/* ===== CUSTOMER REVIEWS ===== */
+#reviews { background: var(--off-white); }
+.review-form-wrapper {
+  max-width: 720px; margin: 50px auto 0; background: var(--white);
+  border-radius: 18px; padding: 40px; box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  border: 1px solid #eee;
+}
+.review-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.form-input.light, .form-textarea.light {
+  background: var(--off-white); border: 1px solid #e4e0d4; color: var(--charcoal);
+}
+.form-input.light:focus, .form-textarea.light:focus {
+  outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(242,169,0,0.12);
+}
+.form-input.light::placeholder, .form-textarea.light::placeholder { color: var(--text-muted); }
+.star-rating { display: flex; gap: 6px; font-size: 30px; line-height: 1; cursor: pointer; color: #ddd; user-select: none; }
+.star-rating span { transition: color 0.2s, transform 0.15s; }
+.star-rating span:hover { transform: scale(1.15); }
+.star-rating span.active { color: var(--gold); }
+.review-success {
+  display: none; background: rgba(37,211,102,0.12); border: 1px solid #25D366;
+  border-radius: 10px; padding: 20px; text-align: center; color: #1a9e51;
+  margin-top: 20px; font-weight: 600;
+}
+.reviews-wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-top: 50px; }
+.review-card {
+  background: var(--white); border-radius: 16px; padding: 28px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06); border: 1px solid #eee;
+}
+.review-card .stars { color: var(--gold); font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
+.review-card .review-text { font-size: 14.5px; color: var(--charcoal); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+.review-author { display: flex; align-items: center; gap: 12px; }
+.review-avatar {
+  width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--gold), var(--ink));
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-weight: 700; font-size: 14px;
+}
+.review-name { font-weight: 700; font-size: 14px; color: var(--charcoal); }
+.review-loc { font-size: 12px; color: var(--text-muted); }
+.reviews-empty, .reviews-loading { grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 30px; font-size: 14px; }
+
 /* ===== FEATURED PROJECTS ===== */
 #projects { background: var(--off-white); }
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px; margin-top: 50px; }
@@ -553,7 +595,8 @@ footer { background: #0d0d0d; color: rgba(255,255,255,0.65); padding: 50px 20px 
     <li><a href="#services">Services</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#why">Why Us</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
+    <!-- <li><a href="#testimonials">Testimonials</a></li> -->
+    <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})">Book Free Consultation</button>
@@ -569,7 +612,8 @@ footer { background: #0d0d0d; color: rgba(255,255,255,0.65); padding: 50px 20px 
   <a href="#services" onclick="toggleMenu()">Services</a>
   <a href="#projects" onclick="toggleMenu()">Projects</a>
   <a href="#why" onclick="toggleMenu()">Why Us</a>
-  <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
+  <!-- <a href="#testimonials" onclick="toggleMenu()">Testimonials</a> -->
+  <a href="#reviews" onclick="toggleMenu()">Reviews</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
   <a href="#contact-form" onclick="toggleMenu()" style="color:var(--gold);border:1.5px solid var(--gold);padding:12px 32px;border-radius:5px;margin-top:8px;font-size:16px">Book Free Consultation</a>
 </div>
@@ -856,7 +900,9 @@ footer { background: #0d0d0d; color: rgba(255,255,255,0.65); padding: 50px 20px 
   </div>
 </section>
 
+
 <!-- TESTIMONIALS -->
+<!--
 <section id="testimonials">
   <div class="container">
     <div class="text-center">
@@ -915,6 +961,8 @@ footer { background: #0d0d0d; color: rgba(255,255,255,0.65); padding: 50px 20px 
   </div>
 </section>
 
+-->
+
 <!-- LEAD FORM -->
 <section id="contact-form">
   <div class="form-bg-pattern"></div>
@@ -937,7 +985,7 @@ footer { background: #0d0d0d; color: rgba(255,255,255,0.65); padding: 50px 20px 
           </div>
           <div class="form-group">
             <label class="form-label">Phone Number *</label>
-            <input type="tel" class="form-input" name="Phone" placeholder="+91 95452 62828" pattern="[0-9+\s\-]{8,15}" required>
+            <input type="tel" class="form-input" name="Phone" placeholder="+91 XXXXX XXXXX" pattern="[0-9+\s\-]{8,15}" required>
           </div>
           <div class="form-group">
             <label class="form-label">Email Address</label>
@@ -1007,7 +1055,7 @@ footer { background: #0d0d0d; color: rgba(255,255,255,0.65); padding: 50px 20px 
       <div class="form-success" id="formSuccess">
         ✅ Thank you! Your request has been received. Our team will contact you within 24 hours.
         <br>For immediate assistance, call us on
-        <a href="tel:9545262828" style="color:var(--gold)">9545262828</a>
+        <a href="tel:+919545262828" style="color:var(--gold)">+919545262828</a>
       </div>
     </div>
   </div>
@@ -1040,7 +1088,7 @@ footer { background: #0d0d0d; color: rgba(255,255,255,0.65); padding: 50px 20px 
           <div class="contact-icon">💬</div>
           <div>
             <div class="contact-label">WhatsApp</div>
-            <div class="contact-val"><a href="https://wa.me/+919545262828">Chat on WhatsApp</a></div>
+            <div class="contact-val"><a href="https://wa.me/XXX">Chat on WhatsApp</a></div>
           </div>
         </div>
         <div class="contact-item">
@@ -1088,6 +1136,49 @@ footer { background: #0d0d0d; color: rgba(255,255,255,0.65); padding: 50px 20px 
   </div>
 </section>
 
+<!-- CUSTOMER REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Client Voices</div>
+      <h2 class="section-title">Share Your <span style="color:var(--gold)">Experience</span></h2>
+      <p class="section-desc">Loved working with us? Leave a review below — it posts instantly and stays here for every visitor to see.</p>
+    </div>
+
+    <div class="review-form-wrapper">
+      <form id="reviewForm" onsubmit="submitReview(event)">
+        <div class="review-form-grid">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" name="name" class="form-input light" required maxlength="60" placeholder="e.g. Priya Sharma">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Location</label>
+            <input type="text" name="location" class="form-input light" maxlength="60" placeholder="e.g. Bengaluru">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Your Rating</label>
+            <div class="star-rating" id="starRating">
+              <span data-value="1">★</span><span data-value="2">★</span><span data-value="3">★</span><span data-value="4">★</span><span data-value="5">★</span>
+            </div>
+            <input type="hidden" name="rating" id="ratingInput" value="5">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Your Review</label>
+            <textarea name="text" class="form-textarea light" rows="4" required maxlength="600" placeholder="Tell us about your experience with DesignTeam Interiors..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">✦ Post My Review</button>
+      </form>
+      <div class="review-success" id="reviewSuccess">✓ Thank you! Your review has been posted and is now live on this page.</div>
+    </div>
+
+    <div class="reviews-wall" id="reviewsWall">
+      <div class="reviews-loading" id="reviewsLoading">Loading reviews…</div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="container">
@@ -1103,7 +1194,8 @@ footer { background: #0d0d0d; color: rgba(255,255,255,0.65); padding: 50px 20px 
         <a href="#services">Our Services</a>
         <a href="#projects">Projects</a>
         <a href="#why">Why Choose Us</a>
-        <a href="#testimonials">Testimonials</a>
+        <!-- <a href="#testimonials">Testimonials</a> -->
+        <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="footer-col">
@@ -1137,6 +1229,10 @@ footer { background: #0d0d0d; color: rgba(255,255,255,0.65); padding: 50px 20px 
   <a href="https://wa.me/+919545262828?text=Hi%20DesignTeam%20Interiors!%20I'm%20interested%20in%20your%20interior%20design%20services." class="float-btn float-wa" target="_blank" title="WhatsApp">💬</a>
   <a href="tel:+919545262828" class="float-btn float-call" title="Call Now">📞</a>
 </div>
+
+<!-- Firebase (powers the live, permanent Customer Reviews wall below) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script>
 // ===== NAVBAR SCROLL =====
@@ -1182,7 +1278,7 @@ async function submitForm(e) {
   btn.innerHTML = '&#x23F3; Sending your request...';
   btn.disabled = true;
 
-  const FORMSPREE_ID = 'myegkrge';
+  const FORMSPREE_ID = 'YOUR_FORM_ID';
 
   const fd = new FormData(form);
   const payload = { _subject: 'New Lead - DesignTeam Interiors Website!' };
@@ -1219,6 +1315,145 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+
+// ===== CUSTOMER REVIEWS (Firebase Firestore) =====
+// This makes reviews permanent and visible to every visitor, not just your own browser.
+// SETUP (one-time, ~5 minutes, free):
+// 1. Go to https://console.firebase.google.com → Create a project.
+// 2. In the project, click the "</>" (Web) icon to register a web app, then copy the
+//    firebaseConfig values it gives you into the object below.
+// 3. In the left menu go to Build → Firestore Database → Create database (start in
+//    "production mode" is fine — the rule below opens it up correctly).
+// 4. In Firestore's "Rules" tab, paste this and click Publish:
+//      rules_version = '2';
+//      service cloud.firestore {
+//        match /databases/{database}/documents {
+//          match /reviews/{reviewId} {
+//            allow read: if true;
+//            allow create: if request.resource.data.name is string
+//                          && request.resource.data.text is string
+//                          && request.resource.data.rating is number;
+//            allow update, delete: if false;
+//          }
+//        }
+//      }
+// That's it — once firebaseConfig below is filled in, reviews submitted by any visitor
+// save to Firestore and appear live for everyone, permanently.
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBGnPVacjkk64JarQSgfb8GLv07IjJS8Lk",
+  authDomain: "designteam-interiors.firebaseapp.com",
+  projectId: "designteam-interiors",
+  storageBucket: "designteam-interiors.firebasestorage.app",
+  messagingSenderId: "809146965582",
+  appId: "1:809146965582:web:62baa077a7592044f5ad1f"
+};
+
+let reviewsDb = null;
+try {
+  if (firebaseConfig.apiKey !== "YOUR_FIREBASE_API_KEY") {
+    firebase.initializeApp(firebaseConfig);
+    reviewsDb = firebase.firestore();
+  }
+} catch (e) {
+  console.warn('Firebase not initialized — reviews will not be permanent yet.', e);
+}
+
+// Star rating input
+let currentRating = 5;
+function updateStars() {
+  document.querySelectorAll('#starRating span').forEach(star => {
+    star.classList.toggle('active', parseInt(star.getAttribute('data-value')) <= currentRating);
+  });
+}
+document.querySelectorAll('#starRating span').forEach(star => {
+  star.addEventListener('click', () => {
+    currentRating = parseInt(star.getAttribute('data-value'));
+    document.getElementById('ratingInput').value = currentRating;
+    updateStars();
+  });
+});
+updateStars();
+
+async function submitReview(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('.form-submit');
+  const originalHTML = btn.innerHTML;
+  btn.innerHTML = '⏳ Posting...';
+  btn.disabled = true;
+
+  const name = form.name.value.trim();
+  const location = form.location.value.trim();
+  const text = form.text.value.trim();
+  const rating = currentRating;
+
+  if (!reviewsDb) {
+    alert('Reviews aren\'t connected to a database yet. Add your Firebase config in the code (see the comments above the reviews script) to make this go live.');
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+    return;
+  }
+
+  try {
+    await reviewsDb.collection('reviews').add({
+      name, location, text, rating,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+    form.reset();
+    currentRating = 5;
+    document.getElementById('ratingInput').value = 5;
+    updateStars();
+    form.style.display = 'none';
+    document.getElementById('reviewSuccess').style.display = 'block';
+  } catch (err) {
+    console.error(err);
+    alert('Something went wrong posting your review. Please try again.');
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+  }
+}
+
+function renderReviews(docs) {
+  const wall = document.getElementById('reviewsWall');
+  if (!docs.length) {
+    wall.innerHTML = '<div class="reviews-empty">Be the first to share your experience! ✦</div>';
+    return;
+  }
+  wall.innerHTML = docs.map(r => {
+    const esc = (s) => (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const safeName = esc(r.name) || 'Anonymous';
+    const safeLoc = esc(r.location);
+    const safeText = esc(r.text);
+    const rating = Math.max(1, Math.min(5, r.rating || 5));
+    const starsHTML = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+    const initials = safeName.trim().split(/\s+/).map(w => w[0]).slice(0,2).join('').toUpperCase();
+    return `
+      <div class="review-card fade-up visible">
+        <div class="stars">${starsHTML}</div>
+        <p class="review-text">"${safeText}"</p>
+        <div class="review-author">
+          <div class="review-avatar">${initials}</div>
+          <div>
+            <div class="review-name">${safeName}</div>
+            ${safeLoc ? `<div class="review-loc">${safeLoc}</div>` : ''}
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+if (reviewsDb) {
+  reviewsDb.collection('reviews').orderBy('createdAt', 'desc').limit(60)
+    .onSnapshot(snapshot => {
+      renderReviews(snapshot.docs.map(d => d.data()));
+    }, err => {
+      console.error(err);
+      document.getElementById('reviewsWall').innerHTML = '<div class="reviews-empty">Could not load reviews right now.</div>';
+    });
+} else {
+  document.getElementById('reviewsWall').innerHTML = '<div class="reviews-empty">Reviews will appear here once this page is connected to a database (see setup notes in the code).</div>';
+}
 </script>
 </body>
 </html>
